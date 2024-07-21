@@ -11,7 +11,7 @@ function theme_enqueue_scripts() {
   wp_enqueue_script( 'common-script', $theme_directory . '/js/common.js', array('jquery'), null, true);
 
   if(is_front_page()){
-    wp_enqueue_style('front-style', $theme_directory . '/css/front.css', array('common.style'));
+    wp_enqueue_style('front-style', $theme_directory . '/css/front.css', array('common-style'));
     wp_enqueue_script( 'front-script', $theme_directory . '/js/front.js', array('jquery'), null, true);
   }
 
