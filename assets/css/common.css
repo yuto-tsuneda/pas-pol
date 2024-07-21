@@ -1,0 +1,33 @@
+.header {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  position: absolute;
+  top: 0;
+  height: 0;
+  width: 100%;
+}
+.header__logo {
+  width: 266px;
+  height: 72px;
+  background-color: red;
+  margin: 50px 0 0 7%;
+}
+.header__pc--nav {
+  margin-left: auto;
+  margin-top: 75px;
+  margin-right: 7%;
+}
+.header__pc--nav ul {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+.header__pc--nav li {
+  list-style: none;
+  margin-left: 40px;
+  letter-spacing: 0.1em;
+  font-size: 14px;
+}/*# sourceMappingURL=common.css.map */
