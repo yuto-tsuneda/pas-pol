@@ -59,3 +59,78 @@ function create_product_post_type(){
   );
 }
 add_action('init', 'create_product_post_type');
+
+function theme_setup() {
+  add_theme_support('post-thumbnails');
+}
+add_action('after_setup_theme', 'theme_setup');
+
+// productのカスタム投稿一覧を表示する
+
+function display_product_latest_thumbnails($posts_per_page = 5) {
+  $args = array(
+      'post_type' => 'product',
+      'posts_per_page' => $posts_per_page,
+      'orderby' => 'date',
+      'order' => 'DESC'
+  );
+
+  $custom_query = new WP_Query($args);
+
+  if ($custom_query->have_posts()) : ?>
+      <div class="product-thumbnails-list">
+          <?php while ($custom_query->have_posts()) : $custom_query->the_post(); ?>
+              <div class="product-thumbnail-item">
+                  <?php if (has_post_thumbnail()) : ?>
+                      <a href="<?php the_permalink(); ?>">
+                          <?php the_post_thumbnail('full'); // アイキャッチ画像を表示 ?>
+                          <h2><?php the_title(); // 記事のタイトルを表示 ?></h2>
+                      </a>
+                  <?php endif; ?>
+              </div>
+          <?php endwhile; ?>
+      </div>
+      <?php wp_reset_postdata(); ?>
+  <?php else : ?>
+      <p>製品が見つかりませんでした。</p>
+  <?php endif;
+}
+
+//newsのカスタム投稿一覧を表示する
+
+function display_news_latest_thumbnails($posts_per_page = 5) {
+  $args = array(
+      'post_type' => 'news',
+      'posts_per_page' => $posts_per_page,
+      'orderby' => 'date',
+      'order' => 'DESC'
+  );
+
+  $custom_query = new WP_Query($args);
+
+  if ($custom_query->have_posts()) : ?>
+      <div class="news-thumbnails-list">
+          <?php while ($custom_query->have_posts()) : $custom_query->the_post(); ?>
+              <div class="news-thumbnail-item">
+                  <?php if (has_post_thumbnail()) : ?>
+                      <a href="<?php the_permalink(); ?>">
+                        <div class="news__wrapper">
+                            <?php the_post_thumbnail('full'); // アイキャッチ画像を表示 ?>
+                            <div class="news--right">
+                            <h2><?php the_title(); // 記事のタイトルを表示 ?></h2>
+                            <p class="time"><?php echo get_the_date('Y.m.d'); // 投稿日を表示 ?></p>
+                            <div class="comment">
+                              <?php the_excerpt(); // 記事の内容を表示 ?>
+                            </div>
+                            </div>
+                          </div>
+                      </a>
+                  <?php endif; ?>
+              </div>
+          <?php endwhile; ?>
+      </div>
+      <?php wp_reset_postdata(); ?>
+  <?php else : ?>
+      <p>製品が見つかりませんでした。</p>
+  <?php endif;
+}

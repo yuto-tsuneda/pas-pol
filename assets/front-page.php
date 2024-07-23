@@ -47,7 +47,22 @@
       <p><a href="">MORE</a></p>
     </div>
     <div class="product__wrap">
+      <?php display_product_latest_thumbnails(6); ?>
+    </div>
+  </div>
 
+  <div class="news--bg">
+    <div class="news">
+      <div class="news__wrap">
+        <div class="news__wrap--title">
+          <h2>NEWS</h2>
+          <img src="<?php echo get_template_directory_uri() ?>/images/sectionTitle-underLine@2x.png" alt="">
+        </div>
+        <p><a href="">MORE</a></p>
+      </div>
+      <div class="news__contents">
+        <?php display_news_latest_thumbnails(6); ?>
+      </div>
     </div>
   </div>
 </main>
