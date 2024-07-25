@@ -9,6 +9,7 @@
       <img src="<?php echo get_template_directory_uri(); ?>/images/main_visual_13-0x0.jpg" alt="">
       <img src="<?php echo get_template_directory_uri(); ?>/images/main_visual_111-0x0.jpg" alt="">
     </div>
+    <img class="main--logo" src="<?php echo get_template_directory_uri()?>/images/siteLogo-sp@2x.png" alt="">
     <img class="main--bottom" src="<?php echo get_template_directory_uri() ?>/images/mainVisual-overlay@2x.png" alt="">
   </div>
 
@@ -49,6 +50,9 @@
     <div class="product__wrap">
       <?php display_product_latest_thumbnails(6); ?>
     </div>
+    <div class="more__sp">
+      <a href="">MORE</a>
+    </div>
   </div>
 
   <div class="news--bg">
@@ -63,6 +67,9 @@
       <div class="news__contents">
         <?php display_news_latest_thumbnails(6); ?>
       </div>
+    </div>
+    <div class="more__sp">
+      <a href="">MORE</a>
     </div>
   </div>
 </main>

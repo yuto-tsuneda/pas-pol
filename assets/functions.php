@@ -12,7 +12,7 @@ function theme_enqueue_scripts() {
 
   if(is_front_page()){
     wp_enqueue_style('front-style', $theme_directory . '/css/front.css', array('common-style'));
-    wp_enqueue_script( 'front-script', $theme_directory . '/js/front.js', array('jquery'), null, true);
+    wp_enqueue_script( 'front-script', $theme_directory . '/js/front.js', array('common-script'), null, true);
   }
 
   if(is_singular('news') || is_post_type_archive('news')){

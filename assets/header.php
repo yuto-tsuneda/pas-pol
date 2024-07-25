@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1.0, minimum-scale=1.0">
-  <title>Document</title>
+  <title><?php bloginfo('name'); ?></title>
   <?php wp_head(); ?>
 </head>
 <body>
 
 <header class="header">
-  <div class="header__logo"><a href="#"><img src="<?php echo get_template_directory_uri(); ?>/images/siteLogo-pc@2x.png" alt=""></a></div>
+  <div class="header__logo"><a href="#"><img src="<?php echo get_template_directory_uri(); ?>/images/siteLogo-sp@2x.png" alt=""></a></div>
   <nav class="header__pc--nav">
     <ul>
       <li>TOP</li>
@@ -18,5 +18,15 @@
       <li>NEWS</li>
       <li>CONTACT</li>
     </ul>
+    <div class="header__sp">
+      <div class="header__sp--menu">
+        <p>MENU</p>
+        <div class="header__sp--humberger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </div>
   </nav>
 </header>
