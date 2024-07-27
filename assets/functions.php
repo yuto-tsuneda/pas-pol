@@ -16,12 +16,12 @@ function theme_enqueue_scripts() {
   }
 
   if(is_singular('news') || is_post_type_archive('news')){
-    wp_enqueue_style('news-style', $theme_directory . '/css/news.css', array('common-style'));
+    wp_enqueue_style('news-style', $theme_directory . '/css/archive-news.css', array('common-style'));
     wp_enqueue_script('news-script', $theme_directory . '/js/news.js', array('jquery'), null, true);
   }
 
   if(is_singular('product') || is_post_type_archive('product')){
-    wp_enqueue_style('product-style', $theme_directory . '/css/product.css', array('common-style'));
+    wp_enqueue_style('product-style', $theme_directory . '/css/archive-product.css', array('common-style'));
     wp_enqueue_script('product-script', $theme_directory . '/js/product.js', array('jquery'), null, true);
   }
 }
@@ -90,6 +90,8 @@ function display_product_latest_thumbnails($posts_per_page = 5) {
               </div>
           <?php endwhile; ?>
       </div>
+    <!-- ページネーション追加 -->
+
       <?php wp_reset_postdata(); ?>
   <?php else : ?>
       <p>製品が見つかりませんでした。</p>
@@ -134,3 +136,52 @@ function display_news_latest_thumbnails($posts_per_page = 5) {
       <p>製品が見つかりませんでした。</p>
   <?php endif;
 }
+
+// カスタム投稿一覧ページ
+
+function display_product_latest_thumbnails__archive($posts_per_page = 5) {
+  // 現在のページ番号を取得
+  $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+
+  $args = array(
+      'post_type' => 'product',
+      'posts_per_page' => $posts_per_page,
+      'orderby' => 'date',
+      'order' => 'DESC',
+      'paged' => $paged // paged 引数を追加
+  );
+
+  $custom_query = new WP_Query($args);
+
+  if ($custom_query->have_posts()) : ?>
+      <div class="product-thumbnails-list">
+          <?php while ($custom_query->have_posts()) : $custom_query->the_post(); ?>
+              <div class="product-thumbnail-item">
+                  <?php if (has_post_thumbnail()) : ?>
+                      <a href="<?php the_permalink(); ?>">
+                          <?php the_post_thumbnail('full'); // アイキャッチ画像を表示 ?>
+                          <h2><?php the_title(); // 記事のタイトルを表示 ?></h2>
+                      </a>
+                  <?php endif; ?>
+              </div>
+          <?php endwhile; ?>
+      </div>
+
+      <!-- ページネーションの表示 -->
+      <div class="pagination">
+          <?php
+          echo paginate_links(array(
+              'total' => $custom_query->max_num_pages,
+              'current' => max(1, $paged), // 現在のページ番号を設定
+              'prev_text' => __('« 前へ'),
+              'next_text' => __('次へ »')
+          ));
+          ?>
+      </div>
+
+      <?php wp_reset_postdata(); ?>
+  <?php else : ?>
+      <p>製品が見つかりませんでした。</p>
+  <?php endif;
+}
+?>

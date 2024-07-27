@@ -13,9 +13,9 @@
   <nav class="header__pc--nav">
     <ul>
       <li>TOP</li>
-      <li>PRODUCT</li>
+      <li><a href="<?php echo get_post_type_archive_link('product'); ?>">PRODUCT</a></li>
       <li>ABOUT</li>
-      <li>NEWS</li>
+      <li><a href="<?php echo get_post_type_archive_link('news'); ?>">NEWS</a></li>
       <li>CONTACT</li>
     </ul>
     <div class="header__sp">
