@@ -79,3 +79,28 @@
   width: 80%;
   font-size: 20px;
 }
+
+.pagination{
+  text-align: center;
+  margin-top: 90px;
+
+  a{
+    text-decoration: none;
+    color: #13191b;
+  }
+}
+
+.page-numbers{
+  border: 1px solid #13191b;
+  width: 36px;
+  height: 36px;
+  line-height: 34px;
+  display: inline-block;
+
+  &:hover{
+    color: #fff;
+    background-color: #13191b;
+    opacity: 0.7;
+    transition: all  0.3s ease;
+  }
+}

@@ -80,4 +80,28 @@
   margin: 20px auto 0;
   width: 80%;
   font-size: 20px;
+}
+
+.pagination {
+  text-align: center;
+  margin-top: 90px;
+}
+.pagination a {
+  text-decoration: none;
+  color: #13191b;
+}
+
+.page-numbers {
+  border: 1px solid #13191b;
+  width: 36px;
+  height: 36px;
+  line-height: 34px;
+  display: inline-block;
+}
+.page-numbers:hover {
+  color: #fff;
+  background-color: #13191b;
+  opacity: 0.7;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
 }/*# sourceMappingURL=archive-product.css.map */
