@@ -18,6 +18,10 @@
     </div>
   </div>
 
+<div class="gotop">
+  <p><a href="<?php echo home_url(); ?>"> < BACK TO TOP</a></p>
+</div>
+
 
 
 <?php get_footer(); ?>

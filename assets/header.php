@@ -12,7 +12,7 @@
   <div class="header__logo"><a href="#"><img src="<?php echo get_template_directory_uri(); ?>/images/siteLogo-sp@2x.png" alt=""></a></div>
   <nav class="header__pc--nav">
     <ul>
-      <li>TOP</li>
+      <li><a href="<?php echo home_url(); ?>">TOP</a></li>
       <li><a href="<?php echo get_post_type_archive_link('product'); ?>">PRODUCT</a></li>
       <li>ABOUT</li>
       <li><a href="<?php echo get_post_type_archive_link('news'); ?>">NEWS</a></li>

@@ -235,8 +235,8 @@ function display_news_latest_thumbnails_archive($posts_per_page = 5) {
           echo paginate_links(array(
               'total' => $custom_query->max_num_pages,
               'current' => $paged,
-              'prev_text' => __('&laquo; 前'),
-              'next_text' => __('次 &raquo;')
+              'prev_text' => __('&laquo;'),
+              'next_text' => __('&raquo;')
           ));
           ?>
       </div>
