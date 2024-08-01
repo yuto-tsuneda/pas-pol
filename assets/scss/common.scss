@@ -32,6 +32,12 @@
 
   a{
     text-decoration: none;
+    padding-bottom: 10px;
+  }
+
+  a:hover{
+    border-bottom: 2px solid #fff;
+    transition: all  0.3s ease;
   }
 }
 

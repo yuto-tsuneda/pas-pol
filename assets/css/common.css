@@ -35,6 +35,12 @@
   }
   .header a {
     text-decoration: none;
+    padding-bottom: 10px;
+  }
+  .header a:hover {
+    border-bottom: 2px solid #fff;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
   }
   .footer__nav {
     background-color: #939899;

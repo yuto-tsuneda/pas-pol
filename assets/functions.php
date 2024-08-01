@@ -20,9 +20,14 @@ function theme_enqueue_scripts() {
     wp_enqueue_script('news-script', $theme_directory . '/js/news.js', array('jquery'), null, true);
   }
 
-  if(is_singular('product') || is_post_type_archive('product')){
+  if(is_post_type_archive('product')){
     wp_enqueue_style('product-style', $theme_directory . '/css/archive-product.css', array('common-style'));
     wp_enqueue_script('product-script', $theme_directory . '/js/product.js', array('jquery'), null, true);
+  }
+
+  if(is_singular('product')){
+    wp_enqueue_style('product-single-style', $theme_directory . '/css/product.css', array('common-style'));
+    wp_enqueue_script('product-single-script', $theme_directory . '/js/product.css', array('jquery'), null, true);
   }
 }
 
@@ -246,3 +251,6 @@ function display_news_latest_thumbnails_archive($posts_per_page = 5) {
       <p>製品が見つかりませんでした。</p>
   <?php endif;
 }
+
+remove_filter('the_content', 'wpautop'); // 記事の自動整形を無効にする
+remove_filter('the_excerpt', 'wpautop'); // 抜粋の自動整形を無効にする

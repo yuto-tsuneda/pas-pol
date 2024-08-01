@@ -1,10 +1,5 @@
 <?php get_header(); ?>
 
-<div class="main">
-  <div class="main__visual">
-    
-  </div>
-
 <?php if(have_posts()): ?>
   <?php while(have_posts()): the_post(); ?>
     <h1><?php the_title(); ?></h1>  <!--記事タイトル-->
@@ -12,6 +7,9 @@
   <?php endwhile;?>
 <?php endif; ?>
 
+<div class="gotop">
+  <p><a href="<?php echo home_url(); ?>"> < BACK TO TOP</a></p>
 </div>
+
 
 <?php get_footer(); ?>
