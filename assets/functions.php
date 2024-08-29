@@ -29,6 +29,11 @@ function theme_enqueue_scripts() {
     wp_enqueue_style('product-single-style', $theme_directory . '/css/product.css', array('common-style'));
     wp_enqueue_script('product-single-script', $theme_directory . '/js/product.css', array('jquery'), null, true);
   }
+
+  if(is_404()){
+    wp_enqueue_style('404-style', $theme_directory . '/css/404.css', array('common-style'));
+    wp_enqueue_script('404-script', $theme_directory . '/js/404.js', array('jquery'), null, true);
+  }
 }
 
 add_action('wp_enqueue_scripts', 'theme_enqueue_scripts');
