@@ -34,6 +34,16 @@ function theme_enqueue_scripts() {
     wp_enqueue_style('404-style', $theme_directory . '/css/404.css', array('common-style'));
     wp_enqueue_script('404-script', $theme_directory . '/js/404.js', array('jquery'), null, true);
   }
+
+  if(is_page('thankspage')){
+    wp_enqueue_style('thankspage-style', $theme_directory. '/css/thankspage.css', array('common-style'));
+    wp_enqueue_script('thankspage-script', $theme_directory. '/js/thanks.js', array('jquery'), null, true);
+  }
+
+  if(is_page('contactcf7')){
+    wp_enqueue_style('contactcf7-style', $theme_directory. '/css/contactcf7.css', array('common-style'));
+    wp_enqueue_script('contactcf7-script', $theme_directory. '/js/contactcf7.js', array('jquery'), null, true);
+  }
 }
 
 add_action('wp_enqueue_scripts', 'theme_enqueue_scripts');
