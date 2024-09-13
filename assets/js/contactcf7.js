@@ -1,7 +1,7 @@
 jQuery(document).ready(function($) {
   
   document.addEventListener('wpcf7mailsent', function(event) {
-    window.location.href = 'pas-pol.local /thankspage';
+    window.location.href = 'http://pas-pol.local/thankspage/';
 }, false);
   
 
